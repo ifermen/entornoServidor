@@ -1,5 +1,7 @@
 <?php
-
+/*
+12. Crea una función que reciba dos números y devuelva el mayor.
+*/
 function numMayor($num1,$num2){
     if($num1<$num2){
         echo $num2 . " es mayor que " . $num1;
