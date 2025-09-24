@@ -27,6 +27,76 @@ $usuarios = [
  ];
 
 echo "Todos los correos:<br>";
-foreach($usuarios as $users){
-    echo " - " . $users["email"] . "<br>";
+foreach($usuarios as $user){
+    echo " - " . $user["email"] . "<br>";
 }
+
+function searchUser($users,$userName){
+    $userFound = [];
+    $found = false;
+    for($i = 0; $i < count($users) && !$found; $i++){
+        if($users[$i]["nombre"] == $userName){
+            $userFound = $users[$i];
+            $found = true;
+        }
+    }
+    return $userFound;
+}
+
+echo searchUser($usuarios,"Luis")["nombre"] . "<br>";
+
+$sum = 0;
+foreach($usuarios as $user){
+    $sum = $sum + $user["edad"];
+}
+
+echo "Edad media: " . ($sum / count($usuarios)) . "<br>";
+
+$newArray = array_filter($usuarios,fn($usuario)=> $usuario["edad"]>30);
+
+echo "Datos del nuevo array:<br>";
+foreach($newArray as $user){
+    echo " - " . $user["nombre"] . "<br>";
+}
+
+?>
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Edad</th>
+    </tr>
+    <?php
+    foreach($usuarios as $user){
+    echo "<tr>";
+        echo "<td>" . $user["id"] . "</td>";
+        echo "<td>" . $user["nombre"] . "</td>";
+        echo "<td>" . $user["email"] . "</td>";
+        echo "<td>" . $user["edad"] . "</td>";
+    echo "</tr>";
+    }
+    ?>
+</table>
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Edad</th>
+    </tr>
+    <?php
+    foreach($usuarios as $user){
+    ?>
+    <tr>
+        <td><?=$user["id"]?></td>
+        <td><?=$user["nombre"]?></td>
+        <td><?=$user["email"]?></td>
+        <td><?=$user["edad"]?></td>
+    </tr>
+    <?php
+    }
+    ?>
+</table>
