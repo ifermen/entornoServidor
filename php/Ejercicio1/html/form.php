@@ -20,8 +20,6 @@
                 <input id="nombre" name="nombre" type="text" class="form-control" value="<?php
                     if(isset($_GET["nombre"])){
                         echo $_GET["nombre"];
-                    }else{
-                        echo "";
                     }
                 ?>">
             </div>
@@ -32,7 +30,7 @@
                 <div class="custom-control custom-checkbox custom-control-inline">
                     <input name="gustos[]" id="gustos_0" type="checkbox" class="custom-control-input" value="nacho" <?php
                         if(isset($_GET["gustos"])){
-                            if(array_search("nacho",$_GET["gustos"]) != false){
+                            if(in_array("nacho",$_GET["gustos"])){
                                 echo "checked";
                             }
                         }
@@ -42,7 +40,7 @@
                 <div class="custom-control custom-checkbox custom-control-inline">
                     <input name="gustos[]" id="gustos_1" type="checkbox" class="custom-control-input" value="burger" <?php
                         if(isset($_GET["gustos"])){
-                            if(array_search("burger",$_GET["gustos"]) != false){
+                            if(in_array("burger",$_GET["gustos"])){
                                 echo "checked";
                             }
                         }
@@ -52,7 +50,7 @@
                 <div class="custom-control custom-checkbox custom-control-inline">
                     <input name="gustos[]" id="gustos_2" type="checkbox" class="custom-control-input" value="pizza" <?php
                         if(isset($_GET["gustos"])){
-                            if(array_search("pizza",$_GET["gustos"]) != false){
+                            if(in_array("pizza",$_GET["gustos"])){
                                 echo "checked";
                             }
                         }
@@ -62,7 +60,7 @@
                 <div class="custom-control custom-checkbox custom-control-inline">
                     <input name="gustos[]" id="gustos_3" type="checkbox" class="custom-control-input" value="lasagna" <?php
                         if(isset($_GET["gustos"])){
-                            if(array_search("lasagna",$_GET["gustos"]) != false){
+                            if(in_array("lasagna",$_GET["gustos"])){
                                 echo "checked";
                             }
                         }
